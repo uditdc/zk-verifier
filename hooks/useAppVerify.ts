@@ -8,7 +8,7 @@ import Web3 from 'web3';
 
 interface UseAppVerifyResponse {
   doVerify: any
-  result: string
+  result: string | null
   isVerified: boolean
   isLoading: boolean
   error: any

@@ -1,8 +1,8 @@
 import { BigNumberish } from "ethers"
-import { formatUnits } from "ethers"
+import { utils } from "ethers"
 
 export const getBnToNumber = (bn: BigNumberish, decimals = 18) => {
-  return bn ? parseFloat(formatUnits(bn, decimals)) : 0
+  return bn ? parseFloat(utils.formatUnits(bn, decimals)) : 0
 }
 
 export const getCurrencySymbol = (locale: string, currency: string) => (0).toLocaleString(locale, { style: 'currency', currency, minimumFractionDigits: 0, maximumFractionDigits: 0 }).replace(/\d/g, '').trim()

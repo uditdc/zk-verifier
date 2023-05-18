@@ -6,6 +6,8 @@ import { CeloProvider, Alfajores, NetworkNames, SupportedProviders } from '@celo
 
 // Setup Theme
 function MyApp({ Component, pageProps }: AppProps) {
+  const AnyComponent = Component as any;
+
   return (
     <ChakraProvider>
       <CeloProvider
@@ -31,7 +33,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           }
         }}
       >
-        <Component {...pageProps} />
+        <AnyComponent {...pageProps} />
       </CeloProvider>
     </ChakraProvider>
   )

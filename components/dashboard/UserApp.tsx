@@ -17,6 +17,8 @@ export default function UserApp({ id }: UserAppProps) {
   const { appImage } = useAppImage(id)
   const { isVerified, isLoading: isVerifyLoading, error: verifyError, result: verifyResult, doVerify } = useAppVerify()
 
+  const address = appImage?.deployment?.length > 0 ? appImage?.deployment[0].address : null
+
   return (
     <UserAppWrap>
       <Card mb={10}>
@@ -28,29 +30,38 @@ export default function UserApp({ id }: UserAppProps) {
         </CardHeader>
 
         <CardBody>
-          <div>
-            <span>Celo Contract</span>
-            <div>
-              <a href="https://explorer.celo.org/alfajores/address/0xc44831f5f424A95465720bda94110AB0140Afc93/contracts" target="_blank" rel="noopener noreferrer">
-                {formatAddress('CO2_ORACLE_ADDRESS')}
-              </a>
-              &nbsp;
-              <RiExternalLinkLine />
-            </div>
-          </div>
-
-          <Button
-            colorScheme='blue'
-            isLoading={isVerifyLoading}
-            onClick={() => doVerify(app, appImage)}>
-            Verify on CELO
-          </Button>
-
           {
-            isVerified && !verifyError && (
-              <Flex mt={2}>
-                <TableStatus status="success" />
-              </Flex>
+            address && (
+              <UserAppContract>
+                <div>
+                  <span>Celo Contract</span>
+                  <div>
+                    <a href="https://explorer.celo.org/alfajores/address/0xc44831f5f424A95465720bda94110AB0140Afc93/contracts" target="_blank" rel="noopener noreferrer">
+                      {formatAddress(address)}
+                    </a>
+                    &nbsp;
+                    <RiExternalLinkLine />
+                  </div>
+                </div>
+
+                <div>
+                  <Button
+                    colorScheme='blue'
+                    isLoading={isVerifyLoading}
+                    onClick={() => doVerify(app, appImage)}>
+                    Verify on CELO
+                  </Button>
+                  
+                  {
+                    isVerified && !verifyError && (
+                      <Flex mt={2}>
+                        <TableStatus status="success" />
+                      </Flex>
+                    )
+                  }
+                </div>
+
+              </UserAppContract>
             )
           }
 
@@ -128,4 +139,34 @@ const UserAppVerifyResult = styled.div`
 
 const UserAppVerifyResultStatus = styled.div`
   
+`
+
+const UserAppContract = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  
+  span {
+    font-size: 0.875rem;
+    color: #8c8c8c;
+    margin-bottom: 0.5rem;
+  }
+
+  strong {
+    font-size: 1.125rem;
+  }
+
+  img {
+    height: 1.5rem;
+  }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    > div {
+      display: flex;
+    }
+  }
 `

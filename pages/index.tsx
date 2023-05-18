@@ -6,9 +6,7 @@ import { useCelo } from '@celo/react-celo'
 
 export default function Dashboard() {
   const { address } = useCelo()
-
-  console.log('address', address)
-  
+ 
   return (
     <BaseLayout>
       <DashboardInner>
