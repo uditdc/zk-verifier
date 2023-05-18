@@ -1,0 +1,49 @@
+{
+  "name": "celo_bls_cc_app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@0xsequence/multicall": "0.43.28",
+    "@celo/contractkit": "^4.1.0",
+    "@celo/react-celo": "^5.0.3",
+    "@chakra-ui/icons": "^2.0.19",
+    "@chakra-ui/react": "^2.6.1",
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@types/node": "20.2.0",
+    "@types/react": "18.2.6",
+    "@types/react-dom": "18.2.4",
+    "@web3-react/core": "^8.2.0",
+    "@web3-react/injected-connector": "^6.0.7",
+    "@web3-react/network-connector": "^6.2.9",
+    "clsx": "^1.2.1",
+    "connectkit": "^1.2.4",
+    "dayjs": "^1.11.7",
+    "eslint": "8.40.0",
+    "eslint-config-next": "13.4.2",
+    "ether-swr": "^2.0.1",
+    "ethers": "^5",
+    "framer-motion": "^10.12.12",
+    "net": "^1.0.2",
+    "next": "13.4.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.8.0",
+    "sass": "^1.62.1",
+    "styled-components": "^5.3.10",
+    "swr": "^2.1.5",
+    "typescript": "5.0.4",
+    "viem": "^0.3.30",
+    "wagmi": "^1.0.5",
+    "web3": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.26"
+  }
+}
